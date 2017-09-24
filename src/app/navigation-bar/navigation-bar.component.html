@@ -1,3 +1,67 @@
-<p>
-  navigation-bar works!
-</p>
+<md-toolbar color="primary">
+  <a class="big-font no-underline font-all-black" routerLink="/"
+    layout-padding>
+    <img src="/assets/landparcel-inverted-32.png"> SVUUS Auction
+  </a>
+  <div fxFlex></div>
+  <div>
+    <form (ngSubmit)="search()">
+      <div fxLayout="row" layout-padding>
+        <md-toolbar>
+          <md-input-container>
+            <span md-prefix>
+        <button md-icon-button type="submit" ><md-icon>search</md-icon></button>
+        </span>
+            <input md-input placeholder="What do you need?" [(ngModel)]="searchTerm"
+              size="50" name="searchTerm">
+          </md-input-container>
+        </md-toolbar>
+      </div>
+    </form>
+  </div>
+
+  <div fxFlex></div>
+  <div *ngIf="!isLoggedIn()" fxLayout="row">
+    <div>
+      <button routerLink="contact" md-raised-button color="primary">Contact</button>
+    </div>
+    <div>
+      <button routerLink="session/login" md-raised-button color="primary">Login</button>
+    </div>
+    <div>
+      <button routerLink="session/register" md-raised-button color="primary">Register</button>
+    </div>
+  </div>
+  <div *ngIf="isLoggedIn()" fxLayout="row">
+    <div>
+      <button md-icon-button [mdMenuTriggerFor]="notificationsMenu">
+      <md-icon>
+        notifications
+      </md-icon>
+      </button>
+      <md-menu #notificationsMenu="mdMenu">
+        <div>
+          Mary Legal wrote: XXX
+        </div>
+        <div>
+          Requisition #123 approved by Tammy Manager
+        </div>
+      </md-menu>
+    </div>
+    <div>
+      <button md-icon-button [mdMenuTriggerFor]="menu">
+      <md-icon>
+        menu
+      </md-icon>
+      </button>
+      <md-menu #menu="mdMenu">
+        <button md-menu-item routerLink="profile/settings"> Settings </button>
+        <button md-menu-item routerLink="profile/profile"> Profile </button>
+        <button md-menu-item routerLink="profile/manageApprovers"> Manage Approvers </button>
+        <button md-menu-item routerLink="profile/inviteFriend"> Invite A Friend </button>
+        <button md-menu-item routerLink="/contact"> Help </button>
+        <button md-menu-item (click)="logout()"> Sign Out </button>
+      </md-menu>
+    </div>
+  </div>
+</md-toolbar>
