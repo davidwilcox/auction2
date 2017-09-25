@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 
 /*
 MdAutocompleteModule,
@@ -37,7 +38,7 @@ CompatibilityModule,
 ObserveContentModule
 */
 
-import {  } from '@angular/material';
+import { MdIconModule, MdMenuModule, MdInputModule, MdToolbarModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -57,7 +58,12 @@ import { routing } from './app.routing';
     BrowserModule,
     FlexLayoutModule,
     HttpModule,
+    FormsModule,
     NoopAnimationsModule,
+    MdIconModule,
+    MdMenuModule,
+    MdInputModule,
+    MdToolbarModule,
     routing
   ],
   providers: [],
