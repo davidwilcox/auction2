@@ -29,46 +29,28 @@
 		      font-family: Roboto,"Helvetica Neue",sans-serif;
 	      }
 
-
-	      // Define the palettes for your theme using the Material Design palettes available in palette.scss
-	      // (imported above). For each palette, you can optionally specify a default, lighter, and darker
-	      // hue.
-	      $md-primary: md-palette($md-blue);
-	      $md-accent:  md-palette($md-yellow, A200, A100, A400);
-
-	      // The warn palette is optional (defaults to red).
-	      $md-warn:    md-palette($md-red);
-
-	      // Create the theme object (a Sass map containing all of the palettes).
-	      $md-theme: md-light-theme($md-primary, $md-accent, $md-warn);
-
-	      // Person creating a theme writes variables like this:
-	      $md-is-dark-theme: false;
-
-	      $md-foreground: if($md-is-dark-theme, $md-dark-theme-foreground, $md-light-theme-foreground);
-	      $md-background: if($md-is-dark-theme, $md-dark-theme-background, $md-light-theme-background);
-
-
+/*
 	      .md-primary-button {
-		          color: md-color($md-foreground, text);
-			      background-color: md-color($md-primary, 700, 0.7) !important; // Use a specific hue and opacity
+//		          color: md-color($md-foreground, text);
+			      background-color: md-color($primary, 700, 0.7) !important; // Use a specific hue and opacity
 		      }
 
 		      .active-link {
-			          color: md-color($md-foreground, text);
-				      background-color: md-color($md-accent, 700, 0.7) !important; // Use a specific hue and opacity
+//			          color: md-color($md-foreground, text);
+				      background-color: md-color($accent, 700, 0.7) !important; // Use a specific hue and opacity
 			      }
 
 			      .md-accent-button {
-				          color: md-color($md-foreground, text);
-					      background-color: md-color($md-accent, 700, 0.7) !important; // Use a specific hue and opacity
+//				          color: md-color($md-foreground, text);
+					      background-color: md-color($accent, 700, 0.7) !important; // Use a specific hue and opacity
 				      }
 
 
 				      .md-primary {
-					          background-color: md-color($md-primary, 900, 1); // Use a specific hue and opacity
+					          background-color: md-color($primary, 900, 1); // Use a specific hue and opacity
 					  }
 
+*/
 
 					  [layout-padding] {
 						      margin: 7px;
@@ -90,5 +72,5 @@
 							  // Include theme styles for core and each component used in your app.
 							  // Alternatively, you can import and @include the theme mixins for each component
 							  // that you are using.
-							  @include angular-material-theme($md-theme);
+//							  @include angular-material-theme($md-theme);
 
