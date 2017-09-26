@@ -1,9 +1,18 @@
 <md-toolbar color="primary">
-  <a class="big-font no-underline font-all-black" routerLink="/"
+  <a class="big-font no-underline font-all-white" routerLink="/"
     layout-padding>
     SVUUS Auction
   </a>
+  <div *ngIf="!isLoggedIn()">
+    <button routerLink="session/login" md-raised-button color="primary"
+      routerLinkActive="active-link">Log In</button>
+    <button routerLink="session/register" md-raised-button color="primary"
+      routerLinkActive="active-link">Register</button>
+  </div>
   <div fxFlex></div>
+  <div class="small-font font-all-white">Need help?
+  </div>
+  <div layout-padding><a class="small-font font-all-white no-underline" href="mailto:kristen.thelen@gmail.com">kristen.thelen@gmail.com</a></div>
   <!--
   <div>
     <form (ngSubmit)="search()">

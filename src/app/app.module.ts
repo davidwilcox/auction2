@@ -38,7 +38,7 @@ CompatibilityModule,
 ObserveContentModule
 */
 
-import { MdIconModule, MdMenuModule, MdInputModule, MdToolbarModule } from '@angular/material';
+import { MdButtonModule, MdToolbarModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -60,9 +60,7 @@ import { routing } from './app.routing';
     HttpModule,
     FormsModule,
     NoopAnimationsModule,
-    MdIconModule,
-    MdMenuModule,
-    MdInputModule,
+    MdButtonModule,
     MdToolbarModule,
     routing
   ],

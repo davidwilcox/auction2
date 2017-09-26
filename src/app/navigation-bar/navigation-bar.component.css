@@ -1,4 +1,4 @@
-.font-all-black {
+.font-all-white {
     color:white;
   }
   
@@ -10,3 +10,6 @@
       text-decoration:none;
   }
   
+  .small-font {
+      font-size: small;
+  }

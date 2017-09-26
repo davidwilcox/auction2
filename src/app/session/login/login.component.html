@@ -1,0 +1,26 @@
+<div layout-padding>
+  <h1>Login</h1>
+
+  <div *ngIf="error">
+    <span>{{ error.message }}</span>
+  </div>
+
+  <form (ngSubmit)="logIn()" name="loginForm">
+    <div>
+      <md-input-container>
+        <input mdInput [(ngModel)]="email" placeholder="Email"
+          name="email">
+      </md-input-container>
+    </div>
+    <div>
+      <md-input-container>
+        <input mdInput [(ngModel)]="password" placeholder="Password"
+          name="password" type="password">
+      </md-input-container>
+    </div>
+    <div>
+      <a ui-sref="forgot_password">Forgot Password?</a>
+    </div>
+  </form>
+  <button type="submit" color="primary" md-raised-button>Log In</button>
+</div>

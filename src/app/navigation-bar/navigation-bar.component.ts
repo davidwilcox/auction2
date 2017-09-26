@@ -9,6 +9,10 @@ export class NavigationBarComponent implements OnInit {
 
   constructor() { }
 
+  isLoggedIn(): boolean {
+    return false;
+  }
+
   ngOnInit() {
   }
 
