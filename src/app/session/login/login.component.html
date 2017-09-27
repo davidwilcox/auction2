@@ -5,11 +5,10 @@
     <span>{{ error.message }}</span>
   </div>
 
-  <form (ngSubmit)="logIn()" name="loginForm">
+  <form (ngSubmit)="login()" name="loginForm">
     <div>
       <md-input-container>
-        <input mdInput [(ngModel)]="email" placeholder="Email"
-          name="email">
+        <input mdInput [(ngModel)]="email" placeholder="Email" name="email">
       </md-input-container>
     </div>
     <div>

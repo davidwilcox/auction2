@@ -1,3 +1,41 @@
-<p>
-  register works!
-</p>
+<div layout-padding>
+  <h1>Register</h1>
+
+  <div *ngIf="error">
+    <span>{{ error.message }}</span>
+  </div>
+
+  <form (ngSubmit)="logIn()" name="loginForm">
+    <div>
+      <md-input-container>
+        <input mdInput [ngModel]="email" placeholder="Email" name="email">
+      </md-input-container>
+    </div>
+    <div fxLayout="row">
+      <md-input-container>
+        <input mdInput [ngModel]="firstname" placeholder="First Name"
+          name="firstname">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput [ngModel]="lastname" placeholder="Last Name" name="lastname">
+      </md-input-container>
+    </div>
+    <!-- TODO Get picture -->
+
+    <div>
+      <div>
+        <md-input-container>
+          <input mdInput [(ngModel)]="password" placeholder="Password"
+            name="password" type="password">
+        </md-input-container>
+      </div>
+      <div>
+        <md-input-container>
+          <input mdInput [(ngModel)]="confirmpassword" placeholder="Confirm Password"
+            name="confirmpassword" type="password">
+        </md-input-container>
+      </div>
+    </div>
+  </form>
+  <button type="submit" color="primary" md-raised-button>Register</button>
+</div>
