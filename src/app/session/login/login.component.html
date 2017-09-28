@@ -8,18 +8,18 @@
   <form (ngSubmit)="login()" name="loginForm">
     <div>
       <md-input-container>
-        <input mdInput [(ngModel)]="email" placeholder="Email" name="email">
+        <input mdInput [(ngModel)]="email" placeholder="Email" name="email" required>
       </md-input-container>
     </div>
     <div>
       <md-input-container>
         <input mdInput [(ngModel)]="password" placeholder="Password"
-          name="password" type="password">
+          name="password" type="password" required>
       </md-input-container>
     </div>
-    <div>
-      <a ui-sref="forgot_password">Forgot Password?</a>
-    </div>
+    <button type="submit" color="primary" md-raised-button>Log In</button>
   </form>
-  <button type="submit" color="primary" md-raised-button>Log In</button>
+  <div>
+    <a routerLink="/session/forgotpassword" ui-sref="forgot_password">Forgot Password?</a>
+  </div>
 </div>

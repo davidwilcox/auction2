@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MdInputModule, MdButtonModule, MdSnackBarModule, MdSnackBar, OVERLAY_PROVIDERS, ScrollStrategyOptions } from '@angular/material';
+import { MdSnackBarContainer, MdInputModule, MdButtonModule, MdSnackBarModule, MdSnackBar, OVERLAY_PROVIDERS, ScrollStrategyOptions } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 import { ConfigService } from '../shared/config.service';
@@ -14,16 +14,18 @@ import { AppLoginService } from '../shared/app-login.service';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SessionRoutes } from './session.routes';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    MdSnackBarModule,
     MdInputModule,
     MdButtonModule,
     RouterModule.forChild(SessionRoutes),
     FormsModule,
   ],
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent],
   providers: [
     AppLoginService,
     MdSnackBar,
@@ -36,6 +38,7 @@ import { SessionRoutes } from './session.routes';
     SessionStorageService,
     WINDOW_PROVIDER,
     */
-  ]
+  ],
+  entryComponents: [MdSnackBarContainer]
 })
 export class SessionModule { }

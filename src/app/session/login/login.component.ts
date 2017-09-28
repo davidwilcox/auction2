@@ -22,18 +22,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    console.log("logging in");
     this._appLoginService.login(this.email, this.password).then((message: any) => {
-      console.log("first");
       if (message.token) {
         this._loginService.login(new UserInfo(this.email, "", message.token));
         this._snackBar.open("Successfully logged in.", "Dismiss", {
-          duration: 2000
+          duration: 3000
         });
-        this._router.navigate(["/requisitions/dashboard"]);
+        this._router.navigate(["/"]);
       } else {
-        this._snackBar.open(message, "Dismiss", {
-          duration: 2000
+        this._snackBar.open(message.message, "Dismiss", {
+          duration: 3000
         });
       }
     });
