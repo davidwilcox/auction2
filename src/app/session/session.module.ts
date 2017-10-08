@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SessionRoutes } from './session.routes';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     RouterModule.forChild(SessionRoutes),
     FormsModule,
   ],
-  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent],
+  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent, LogoutComponent],
   providers: [
     AppLoginService,
     MdSnackBar,

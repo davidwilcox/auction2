@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService, LoginInformation } from '../shared/login.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -7,13 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationBarComponent implements OnInit {
 
-  constructor() { }
+  private _loginInformation: LoginInformation;
+
+  constructor(private _loginService: LoginService) { }
 
   isLoggedIn(): boolean {
-    return false;
+    return this._loginInformation != null;
+  }
+
+  logout(): void {
+    this._loginService.logout();
+  }
+
+  getEmail(): string {
+    return this._loginInformation.userInfo.email;
   }
 
   ngOnInit() {
+    this._loginService.getLoginInformation().subscribe((loginInformation: LoginInformation) => {
+      this._loginInformation = loginInformation;
+    });
   }
 
 }
