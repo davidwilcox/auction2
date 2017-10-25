@@ -11,7 +11,7 @@ export class ConfigService {
         if (window.location.hostname === 'localhost') {
             return 'http://localhost:1466';
         } else if (window.location.hostname === 'dakq62eaafsg6.cloudfront.net'
-                || window.location.hostname === 'auction.svuus.org') {
+            || window.location.hostname === 'auction.svuus.org') {
             return 'https://nnr40fq1oj.execute-api.us-west-2.amazonaws.com/prod';
         }
         return '';
@@ -22,5 +22,12 @@ export class ConfigService {
             return 'dev';
         else
             return 'prod';
+    }
+
+    getStripeToken(): string {
+        if (window.location.hostname === 'localhost')
+            return 'pk_test_TplRtT5yloUqkARvZ1QR4dzt';
+        else
+            return 'pk_test_TplRtT5yloUqkARvZ1QR4dzt';
     }
 };

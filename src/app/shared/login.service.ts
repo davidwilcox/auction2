@@ -7,13 +7,15 @@ import { Subscription } from 'rxjs';
 
 
 export class UserInfo {
-  constructor(email: string, name: string, token: string) {
+  constructor(email: string, firstname: string, lastname: string, token: string) {
     this.email = email;
-    this.name = name;
+    this.firstname = firstname;
+    this.lastname = lastname;
     this.token = token;
   }
   email: string;
-  name: string;
+  firstname: string;
+  lastname: string;
   token: string;
 }
 

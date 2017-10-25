@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   login(): void {
     this._appLoginService.login(this.email, this.password).then((message: any) => {
       if (message.token) {
-        this._loginService.login(new UserInfo(this.email, "", message.token));
+        this._loginService.login(new UserInfo(this.email, "", "", message.token));
         this._snackBar.open("Successfully logged in.", "Dismiss", {
           duration: 3000
         });
