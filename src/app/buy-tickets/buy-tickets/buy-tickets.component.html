@@ -136,9 +136,9 @@
           Would you like to donate to the bar fund?
           <br>
           <md-input-container>
-            <input mdInput type="string" [(ngModel)]="barDonation" name="bardonation" type="number"
-              (ngModelChange)="computeOrderDetails()" placeholder="Bar donation (optional)"
-              min="0">
+            <input mdInput type="string" [(ngModel)]="barDonation" name="bardonation"
+              type="number" (ngModelChange)="computeOrderDetails()"
+              placeholder="Bar donation (optional)" min="0">
             <span mdPrefix>$</span>
             <span mdSuffix>.00</span>
           </md-input-container>
@@ -153,10 +153,10 @@
         </div>
 
         <div>
-          <button md-raised-button (ngClick)="onClickBuy()" color="primary">
+          <button md-raised-button (click)="onClickBuy()" color="primary">
             Purchase Tickets
           </button>
-          <button md-raised-button ng-click="addTicket()" color="primary">Add additional ticket to order</button>
+          <button md-raised-button (click)="addTicket()" color="primary">Add additional ticket to order</button>
         </div>
         <!--      
       -->

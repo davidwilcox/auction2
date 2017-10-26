@@ -95,8 +95,9 @@ export class BuyTicketsComponent implements OnInit {
     });
   }
 
-  public onClickBuy() {
+  public onClickBuy(): void {
     this.stripeCheckoutHandler.open({
+      email: this._loginInformation.userInfo.email,
       amount: this.calculateTotal() * 100,
       currency: 'USD',
     });
