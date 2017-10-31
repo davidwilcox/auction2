@@ -5,7 +5,6 @@ import { SessionStorage, SessionStorageService } from 'ng2-webstorage';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs';
 
-
 export class UserInfo {
   constructor(info: any, token: string) {
     this.email = info.email;
@@ -23,6 +22,17 @@ export class UserInfo {
   admin: boolean;
   phonenumber: string;
   photoid: string;
+}
+
+export function createEmptyUserInfo(): UserInfo {
+  return new UserInfo({
+    email: "",
+    firstname: "",
+    lastname: "",
+    admin: false,
+    phonenumber: "",
+    photoid: "",
+  }, "");
 }
 
 

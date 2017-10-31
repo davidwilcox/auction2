@@ -51,6 +51,7 @@ import { routing } from './app.routing';
 import { ConfigService } from './shared/config.service';
 import { LoginService } from './shared/login.service';
 import { CanActivateLoggedIn } from './shared/can-activate-logged-in';
+import { PhoneNumberPipe } from './pipes/phone-number.pipe';
 
 const WINDOW_PROVIDER: ValueProvider = {
   provide: 'Window',
@@ -61,7 +62,7 @@ const WINDOW_PROVIDER: ValueProvider = {
   declarations: [
     AppComponent,
     NavigationBarComponent,
-    SplashPageComponent
+    SplashPageComponent,
   ],
   imports: [
     BrowserModule,
