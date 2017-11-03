@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MyAuctionRoutes } from './my-auction.routes';
+import { MyTicketsComponent } from './my-tickets/my-tickets.component';
+import { MyDonatedItemsComponent } from './my-donated-items/my-donated-items.component';
+import { MyInvoiceComponent } from './my-invoice/my-invoice.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(MyAuctionRoutes),
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, MyTicketsComponent, MyDonatedItemsComponent, MyInvoiceComponent, MyProfileComponent]
 })
 export class MyAuctionModule { }
