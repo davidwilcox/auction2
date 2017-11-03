@@ -7,7 +7,7 @@ import { LANG_EN_NAME, LANG_EN_TRANS } from './lang-en';
 export const TRANSLATIONS = new OpaqueToken('translations');
 
 // all translations
-const dictionary = {
+export const dictionary = {
     [LANG_EN_NAME]: LANG_EN_TRANS,
 };
 
