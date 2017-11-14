@@ -1,4 +1,4 @@
-<md-card layout-padding>
+<mat-card layout-padding>
   <p>
     Welcome to the South Valley Annual Goods and Services Auction
     Fundraiser! Our event is Saturday, November 11th, 2017, precisely
@@ -23,41 +23,41 @@
   <p>
     Thank you for making this year’s auction GREAT!
   </p>
-  <button md-raised-button color="primary" (click)="openDonationSuggestions()">Donation Ideas</button>
-</md-card>
-<md-card layout-padding fxLayout="column">
+  <button mat-raised-button color="primary" (click)="openDonationSuggestions()">Donation Ideas</button>
+</mat-card>
+<mat-card layout-padding fxLayout="column">
   <h2>Who is donating this item?</h2>
   Enter the name (or names!) of the person or group donating this
   item (you can change it from the autofilled name):
   <div>
-    <md-input-container>
-      <input placeholder="Donor First Name" mdInput type="text" [(ngModel)]="donor.firstname"
+    <mat-input-container>
+      <input placeholder="Donor First Name" matInput type="text" [(ngModel)]="donor.firstname"
         name="donorfirstname" required>
-    </md-input-container>
+    </mat-input-container>
   </div>
   <div>
-    <md-input-container>
-      <input placeholder="Donor Last Name" mdInput type="text" [(ngModel)]="donor.lastname"
+    <mat-input-container>
+      <input placeholder="Donor Last Name" matInput type="text" [(ngModel)]="donor.lastname"
         name="donorlastname" required>
-    </md-input-container>
+    </mat-input-container>
   </div>
 
   <div>
     What phone number should people call about this item? (Again,
     you can change from the autofill.)
   </div>
-  <md-input-container>
-    <input placeholder="Phone Number" mdInput type="tel" [ngModel]="donor.phonenumber | phoneNumber"
+  <mat-input-container>
+    <input placeholder="Phone Number" matInput type="tel" [ngModel]="donor.phonenumber | phoneNumber"
       (ngModelChange)="phoneNumberChange($event)" name="donorphonenumber"
       required>
-  </md-input-container>
+  </mat-input-container>
   <div>
     What email should people use to contact the donor(s)?
   </div>
-  <md-input-container>
-    <input placeholder="Email Address" mdInput type="text" name="email"
+  <mat-input-container>
+    <input placeholder="Email Address" matInput type="text" name="email"
       ng-model="donor.email" required>
-  </md-input-container>
+  </mat-input-container>
   <div>
     Give us a photo of you, or the donating group! (Again, you can
     change it from the image from your original registration.)
@@ -68,7 +68,7 @@
   <input id="uploadfileid" class="ng-hide" type="file" ngf-select="upload($files)"
     ngf-change="upload($files)" ng-model="picFile" name="file"
     ngf-accept="'image/*'" ngf-resize="{width: 500, height: 500}">
-  <label class="md-button md-primary md-raised" for="uploadfileid">Choose Picture</label>
+  <label class="mat-button mat-primary mat-raised" for="uploadfileid">Choose Picture</label>
 
   <div>
     <div ng-show="donor.photoid">
@@ -77,10 +77,10 @@
     </div>
   </div>
 -->
-</md-card>
+</mat-card>
 
 
-<md-card layout-padding fxLayout="column">
+<mat-card layout-padding fxLayout="column">
   <h3>
     <b>I'm offering a...</b>
   </h3>
@@ -89,55 +89,55 @@
     Please keep this succinct.
     <br> Maximum {{itemMaxLength}} characters.
   </div>
-  <md-input-container class="standard-form-width">
-    <input placeholder="Item Name" mdInput type="text" [(ngModel)]="item.name"
+  <mat-input-container class="standard-form-width">
+    <input placeholder="Item Name" matInput type="text" [(ngModel)]="item.name"
       name="itemname" [maxlength]="itemMaxLength" size="50" required>
-    <md-hint align="end">{{item.name.length}} / {{itemMaxLength}}</md-hint>
-  </md-input-container>
+    <mat-hint align="end">{{item.name.length}} / {{itemMaxLength}}</mat-hint>
+  </mat-input-container>
   <div>
     Here's a little more information about it.
     <br> What is great about this item? What would make someone want
     to buy it? Write like you're trying to sell it!
     <br> Maximum {{descriptionMaxLength}} characters.
   </div>
-  <md-input-container class="standard-form-width">
-    <textarea placeholder="Description" mdInput [(ngModel)]="item.description"
+  <mat-input-container class="standard-form-width">
+    <textarea placeholder="Description" matInput [(ngModel)]="item.description"
       name="itemdescription" [maxlength]="descriptionMaxLength"
       mdTextareaAutosize required></textarea>
-    <md-hint align="end">{{item.description.length}} / {{descriptionMaxLength}}</md-hint>
-  </md-input-container>
+    <mat-hint align="end">{{item.description.length}} / {{descriptionMaxLength}}</mat-hint>
+  </mat-input-container>
   <div>
     What is this item worth? Your best guess is fine.
   </div>
   <div layout="row" layout-align="start center">
-    <md-input-container>
-      <input placeholder="Fair Market Value" mdInput [(ngModel)]="item.value"
+    <mat-input-container>
+      <input placeholder="Fair Market Value" matInput [(ngModel)]="item.value"
         name="itemvalue" min="0" required type="number">
       <span mdPrefix>$</span>
       <span mdSuffix>.00</span>
-    </md-input-container>
+    </mat-input-container>
   </div>
   I would hate to see my item go for less than this amount.
   <div layout="row" layout-align="start center">
-    <md-input-container>
-      <input placeholder="Minimum Value" mdInput type="number" [(ngModel)]="item.minvalue"
+    <mat-input-container>
+      <input placeholder="Minimum Value" matInput type="number" [(ngModel)]="item.minvalue"
         name="itemminvalue" min="0" required>
       <span mdPrefix>$</span>
       <span mdSuffix>.00</span>
-    </md-input-container>
+    </mat-input-container>
   </div>
 
   <div>
     <b>My item falls in the following category: (required)</b>
   </div>
-  <md-radio-group [(ngModel)]="item.category" name="itemcategory"
+  <mat-radio-group [(ngModel)]="item.category" name="itemcategory"
     required>
-    <md-radio-button value="event">Event (like a dinner party, poker night, a class, anything
-      with multiple spots that happens later.)</md-radio-button>
-    <md-radio-button value="object">Object or service (a thing that can sit on the table, a gift
+    <mat-radio-button value="event">Event (like a dinner party, poker night, a class, anything
+      with multiple spots that happens later.)</mat-radio-button>
+    <mat-radio-button value="object">Object or service (a thing that can sit on the table, a gift
       certificate, haircut, computer consulting, photo shoot.
-      It could be later, but it's sold as a single thing.)</md-radio-button>
-  </md-radio-group>
+      It could be later, but it's sold as a single thing.)</mat-radio-button>
+  </mat-radio-group>
 
   <div *ngIf="item.category == 'object'" fxLayout="column">
     How many items are you selling?
@@ -145,19 +145,19 @@
     in this field. However, if you are selling a group of items
     together (a basket of jams, or a set of books, put "1").
     <br>
-    <md-input-container>
-      <input placeholder="Quantity" mdInput type="number" ng-model="item.quantity"
+    <mat-input-container>
+      <input placeholder="Quantity" matInput type="number" ng-model="item.quantity"
         name="quantity" min="0" required>
-    </md-input-container>
+    </mat-input-container>
   </div>
 
   <div *ngIf="item.category == 'event'">
     How many spots will your event have?
     <br>
-    <md-input-container>
-      <input placeholder="Number of Spots" mdInput type="number" ng-model="item.quantity"
+    <mat-input-container>
+      <input placeholder="Number of Spots" matInput type="number" ng-model="item.quantity"
         min="0" required>
-    </md-input-container>
+    </mat-input-container>
   </div>
 
   <div *ngIf="item.category == 'event'">
@@ -165,27 +165,27 @@
     choosing and advertising a specific date.
     <br>
     <!--
-    <md-datepicker [(ngModel)]="item.eventdate" placeholder="Event Date"
-      aria-label="Date Picker" md-min-date="eventMinDate" md-max-date="eventMaxDate">
-    </md-datepicker>
+    <mat-datepicker [(ngModel)]="item.eventdate" placeholder="Event Date"
+      aria-label="Date Picker" mat-min-date="eventMinDate" mat-max-date="eventMaxDate">
+    </mat-datepicker>
   -->
     <div>
       If you absolutely can’t pick an exact date, enter the timeframe
       notes you know at this point, like “A Saturday in July”
       <br>
-      <md-input-container>
+      <mat-input-container>
         <label>Time Notes</label>
-        <input type="text" mdInput [(ngModel)]="item.eventtypedtime">
-      </md-input-container>
+        <input type="text" matInput [(ngModel)]="item.eventtypedtime">
+      </mat-input-container>
     </div>
   </div>
 
   <!--
   <div>
     Extra Pricing Notes (Not required)
-    <md-input-container>
+    <mat-input-container>
       <label></label>
-    </md-input-container>
+    </mat-input-container>
   </div>
   -->
 
@@ -196,13 +196,13 @@
     </div>
     <br>
     <div>
-      <md-radio-group [(ngModel)]="item.policy" name="itempolicy" required>
+      <mat-radio-group [(ngModel)]="item.policy" name="itempolicy" required>
         <div *ngFor="let policy of policies">
-          <md-radio-button name="policy" [value]="policy" aria-label="Decision">&nbsp;
+          <mat-radio-button name="policy" [value]="policy" aria-label="Decision">&nbsp;
             {{policy | translate}}
-          </md-radio-button>
+          </mat-radio-button>
         </div>
-      </md-radio-group>
+      </mat-radio-group>
     </div>
   </div>
   <div>
@@ -210,11 +210,11 @@
     this?
   </div>
   <div>
-    <md-input-container>
+    <mat-input-container>
       <label>Pricing Notes</label>
-      <textarea type="text" mdInput [(ngModel)]="item.pricingnotes"
+      <textarea type="text" matInput [(ngModel)]="item.pricingnotes"
         cols="150"></textarea>
-    </md-input-container>
+    </mat-input-container>
   </div>
 
   <div *ngIf="item.category == 'object'">
@@ -223,9 +223,9 @@
     you are responsible for taking it at the end of the auction.
     If you will not be attending the auction, please ask a friend
     to retrieve it for you.
-    <md-radio-group ng-model="item.disclaimer" name="disclaimer"
+    <mat-radio-group ng-model="item.disclaimer" name="disclaimer"
       required>
-      <md-radio-button type="radio" value="yes"> I agree</md-radio-button>
-    </md-radio-group>
+      <mat-radio-button type="radio" value="yes"> I agree</mat-radio-button>
+    </mat-radio-group>
   </div>
-</md-card>
+</mat-card>

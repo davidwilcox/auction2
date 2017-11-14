@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MdSnackBarContainer, MdInputModule, MdButtonModule, MdSnackBarModule, MdSnackBar, OVERLAY_PROVIDERS, ScrollStrategyOptions } from '@angular/material';
+import { MatSnackBarContainer, MatInputModule, MatButtonModule, MatSnackBarModule, MatSnackBar } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 import { ConfigService } from '../shared/config.service';
@@ -21,9 +21,9 @@ import { LogoutComponent } from './logout/logout.component';
 @NgModule({
   imports: [
     CommonModule,
-    MdSnackBarModule,
-    MdInputModule,
-    MdButtonModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatButtonModule,
     RouterModule.forChild(SessionRoutes),
     FormsModule,
     HttpModule,
@@ -31,9 +31,7 @@ import { LogoutComponent } from './logout/logout.component';
   declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent, LogoutComponent],
   providers: [
     AppLoginService,
-    MdSnackBar,
-    OVERLAY_PROVIDERS,
-    ScrollStrategyOptions,
+    MatSnackBar,
     /*
     ConfigService,
     LoginService,
@@ -42,6 +40,6 @@ import { LogoutComponent } from './logout/logout.component';
     WINDOW_PROVIDER,
     */
   ],
-  entryComponents: [MdSnackBarContainer]
+  entryComponents: [MatSnackBarContainer]
 })
 export class SessionModule { }

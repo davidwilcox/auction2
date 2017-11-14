@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MdToolbarModule, MdInputModule, MdCardModule, MdButtonModule, MdIconModule, MdRadioModule } from '@angular/material';
+import { MatToolbarModule, MatInputModule, MatCardModule, MatButtonModule, MatIconModule, MatRadioModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { StripeCheckoutModule } from 'ng-stripe-checkout';
 
@@ -16,13 +16,13 @@ import { BuyTicketsConfirmationComponent } from './buy-tickets-confirmation/buy-
   imports: [
     CommonModule,
     RouterModule.forChild(BuyTicketsRoutes),
-    MdToolbarModule,
-    MdInputModule,
-    MdCardModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
     FormsModule,
-    MdButtonModule,
-    MdRadioModule,
-    MdIconModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatIconModule,
     FlexLayoutModule,
     StripeCheckoutModule,
   ],

@@ -1,44 +1,44 @@
 <div *ngFor="let ticket of tickets">
-  <md-card>
+  <mat-card>
     <div fxLayout="row">
-      <md-input-container>
-        <input mdInput placeholder="First Name" [(ngModel)]="ticket.firstname"
+      <mat-input-container>
+        <input matInput placeholder="First Name" [(ngModel)]="ticket.firstname"
           (blur)="saveTicket(ticket)">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput placeholder="Last Name" [(ngModel)]="ticket.lastname"
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput placeholder="Last Name" [(ngModel)]="ticket.lastname"
           (blur)="saveTicket(ticket)">
-      </md-input-container>
+      </mat-input-container>
     </div>
     <div fxLayout="row">
-      <md-input-container>
-        <input mdInput placeholder="Bid Number" [ngModel]="ticket.bidnumber"
+      <mat-input-container>
+        <input matInput placeholder="Bid Number" [ngModel]="ticket.bidnumber"
           disabled>
-      </md-input-container>
+      </mat-input-container>
       {{ticket.date | date:'medium'}}
     </div>
-    <md-checkbox [(ngModel)]="ticket.gluten">
+    <mat-checkbox [(ngModel)]="ticket.gluten">
       Gluten Free
-    </md-checkbox>
+    </mat-checkbox>
     <div fxLayout="row">
       <div>
-        <md-input-container>
-          <md-select mdInput placeholder="Food Restrictions">
-            <md-option *ngFor="let res of allFoodRestrictions" [value]="res">{{res | translate}}</md-option>
-          </md-select>
-        </md-input-container>
+        <mat-input-container>
+          <mat-select matInput placeholder="Food Restrictions">
+            <mat-option *ngFor="let res of allFoodRestrictions" [value]="res">{{res | translate}}</mat-option>
+          </mat-select>
+        </mat-input-container>
       </div>
       <div>
-        <md-form-field>
-          <md-select mdInput placeholder="Age Category">
-            <md-option *ngFor="let cat of ageCategories" [value]="cat">{{cat | translate}}</md-option>
-          </md-select>
-        </md-form-field>
+        <mat-form-field>
+          <mat-select matInput placeholder="Age Category">
+            <mat-option *ngFor="let cat of ageCategories" [value]="cat">{{cat | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
     </div>
 
     <div>
       {{ticket | json}}
     </div>
-  </md-card>
+  </mat-card>
 </div>

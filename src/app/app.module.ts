@@ -2,30 +2,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ValueProvider } from '@angular/core';
 
 /*
-MdAutocompleteModule,
-MdButtonModule,
-MdButtonToggleModule,
-MdCardModule,
-MdChipsModule,
-MdCheckboxModule,
-MdDialogModule,
-MdGridListModule,
-MdIconModule,
-MdInputModule,
-MdListModule,
-MdMenuModule,
-MdProgressBarModule,
-MdProgressSpinnerModule,
-MdRadioModule,
-MdRippleModule,
-MdSelectModule,
-MdSidenavModule,
-MdSliderModule,
-MdSlideToggleModule,
-MdSnackBarModule,
-MdTabsModule,
-MdToolbarModule,
-MdTooltipModule,
+MatAutocompleteModule,
+MatButtonModule,
+MatButtonToggleModule,
+MatCardModule,
+MatChipsModule,
+MatCheckboxModule,
+MatDialogModule,
+MatGridListModule,
+MatIconModule,
+MatInputModule,
+MatListModule,
+MatMenuModule,
+MatProgressBarModule,
+MatProgressSpinnerModule,
+MatRadioModule,
+MatRippleModule,
+MatSelectModule,
+MatSidenavModule,
+MatSliderModule,
+MatSlideToggleModule,
+MatSnackBarModule,
+MatTabsModule,
+MatToolbarModule,
+MatTooltipModule,
 OverlayModule,
 PortalModule,
 RtlModule,
@@ -36,7 +36,7 @@ CompatibilityModule,
 ObserveContentModule
 */
 
-import { MdButtonModule, MdToolbarModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SessionStorageService } from 'ng2-webstorage';
@@ -49,6 +49,8 @@ import { routing } from './app.routing';
 import { ConfigService } from './shared/config.service';
 import { LoginService } from './shared/login.service';
 import { CanActivateLoggedIn } from './shared/can-activate-logged-in';
+
+import { TranslatePipe } from './translations';
 
 const WINDOW_PROVIDER: ValueProvider = {
   provide: 'Window',
@@ -64,8 +66,8 @@ const WINDOW_PROVIDER: ValueProvider = {
   imports: [
     BrowserModule,
     FlexLayoutModule,
-    MdButtonModule,
-    MdToolbarModule,
+    MatButtonModule,
+    MatToolbarModule,
     routing,
     NoopAnimationsModule,
   ],
@@ -75,6 +77,7 @@ const WINDOW_PROVIDER: ValueProvider = {
     CanActivateLoggedIn,
     SessionStorageService,
     WINDOW_PROVIDER,
+    TranslatePipe,    
   ],
   bootstrap: [AppComponent]
 })

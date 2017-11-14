@@ -22,23 +22,24 @@ import { BidCardsComponent } from './bid-cards/bid-cards.component';
 import { AllTicketsService } from './all-tickets.service';
 import { AllItemsService } from './all-items.service';
 
-import { MdSelectModule, MdButtonModule, MdCardModule, MdInputModule, MdCheckboxModule } from '@angular/material';
+import { MatSelectModule, MatButtonModule, MatCardModule, MatInputModule, MatCheckboxModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { TranslateService, TRANSLATION_PROVIDERS, TranslatePipe } from '../translations';
+import { TranslateService, TRANSLATION_PROVIDERS, TranslatePipe, TranslateModule } from '../translations';
 
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminRoutes),
-    MdButtonModule,
+    MatButtonModule,
     HttpModule,
     FormsModule,
-    MdInputModule,
-    MdCardModule,
+    MatInputModule,
+    MatCardModule,
     FlexLayoutModule,
-    MdCheckboxModule,
-    MdSelectModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    TranslateModule,
   ],
   providers: [
     AllTicketsService,
@@ -56,7 +57,6 @@ import { TranslateService, TRANSLATION_PROVIDERS, TranslatePipe } from '../trans
     LivePrintComponent,
     FixedPriceSheetsComponent,
     ChargeForItemsComponent,
-    BidCardsComponent,
-    TranslatePipe]
+    BidCardsComponent]
 })
 export class AdminModule { }

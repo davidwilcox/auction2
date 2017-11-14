@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
-import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { createEmptyUserInfo, UserInfo } from '../../shared/login.service';
 import { Item, Donor } from '../../models/item';
+import { TranslateService } from '../../translations/translate.service';
 
 @Component({
   selector: 'app-donate-item',
@@ -11,7 +12,7 @@ import { Item, Donor } from '../../models/item';
 })
 export class DonateItemComponent implements OnInit {
 
-  constructor(private _dialog: MdDialog) { }
+  constructor(private _dialog: MatDialog, private _translateService: TranslateService) { }
 
   ngOnInit() {
     this.item = new Item();
@@ -19,7 +20,7 @@ export class DonateItemComponent implements OnInit {
     this.donor = createEmptyUserInfo();
     this.itemMaxLength = 50;
     this.descriptionMaxLength = 500;
-    this.policies = ["KIDSFREE","KIDSFREECOUNT","EVERYBODYCOUNTS","THREEPRICES","OVER14","OVER21","KIDSPARTY"];
+    this.policies = ["KIDSFREE", "KIDSFREECOUNT", "EVERYBODYCOUNTS", "THREEPRICES", "OVER14", "OVER21", "KIDSPARTY"];
   }
 
   openDonationSuggestions(): void {
@@ -47,8 +48,8 @@ export class DonateItemComponent implements OnInit {
 export class DonationSuggestionsDialog {
 
   constructor(
-    public dialogRef: MdDialogRef<DonationSuggestionsDialog>,
-    @Inject(MD_DIALOG_DATA) public data: any) { }
+    public dialogRef: MatDialogRef<DonationSuggestionsDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   onNoClick(): void {
     this.dialogRef.close();

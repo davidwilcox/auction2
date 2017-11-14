@@ -7,35 +7,35 @@
 
   <form (ngSubmit)="logIn()" name="loginForm">
     <div>
-      <md-input-container>
-        <input mdInput [ngModel]="email" placeholder="Email" name="email">
-      </md-input-container>
+      <mat-input-container>
+        <input matInput [ngModel]="email" placeholder="Email" name="email">
+      </mat-input-container>
     </div>
     <div fxLayout="row">
-      <md-input-container>
-        <input mdInput [ngModel]="firstname" placeholder="First Name"
+      <mat-input-container>
+        <input matInput [ngModel]="firstname" placeholder="First Name"
           name="firstname">
-      </md-input-container>
-      <md-input-container>
-        <input mdInput [ngModel]="lastname" placeholder="Last Name" name="lastname">
-      </md-input-container>
+      </mat-input-container>
+      <mat-input-container>
+        <input matInput [ngModel]="lastname" placeholder="Last Name" name="lastname">
+      </mat-input-container>
     </div>
     <!-- TODO Get picture -->
 
     <div>
       <div>
-        <md-input-container>
-          <input mdInput [(ngModel)]="password" placeholder="Password"
+        <mat-input-container>
+          <input matInput [(ngModel)]="password" placeholder="Password"
             name="password" type="password">
-        </md-input-container>
+        </mat-input-container>
       </div>
       <div>
-        <md-input-container>
-          <input mdInput [(ngModel)]="confirmpassword" placeholder="Confirm Password"
+        <mat-input-container>
+          <input matInput [(ngModel)]="confirmpassword" placeholder="Confirm Password"
             name="confirmpassword" type="password">
-        </md-input-container>
+        </mat-input-container>
       </div>
     </div>
   </form>
-  <button type="submit" color="primary" md-raised-button>Register</button>
+  <button type="submit" color="primary" mat-raised-button>Register</button>
 </div>

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AppLoginService } from '../../shared/app-login.service';
 import { LoginService, UserInfo } from '../../shared/login.service';
 
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private _appLoginService: AppLoginService, private _loginService: LoginService, private _router: Router, private _snackBar: MdSnackBar) { }
+  constructor(private _appLoginService: AppLoginService, private _loginService: LoginService, private _router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }

@@ -22,69 +22,74 @@
           </div>
         </div>
         <div *ngFor="let ticket of tickets; let in=index">
-          <md-card layout-padding>
+          <mat-card layout-padding>
             <div fxLayout="row">
               <div fxLayout="column" fxLayout.gt-sm="row">
-                <md-input-container>
-                  <input mdInput [(ngModel)]="ticket.firstname" placeholder="First Name"
+                <mat-input-container>
+                  <input matInput [(ngModel)]="ticket.firstname" placeholder="First Name"
                     name="ticket-first-name-{{in}}">
-                </md-input-container>
+                </mat-input-container>
                 &nbsp;
-                <md-input-container>
-                  <input mdInput [(ngModel)]="ticket.lastname" placeholder="Last Name"
+                <mat-input-container>
+                  <input matInput [(ngModel)]="ticket.lastname" placeholder="Last Name"
                     name="ticket-last-name-{{in}}">
-                </md-input-container>
+                </mat-input-container>
               </div>
               <div fxFlex></div>
-              <md-card-actions>
-                <button class="md-24" md-icon-button (click)="removeTicket(in)">
-                  <md-icon>clear</md-icon>
+              <mat-card-actions>
+                <button class="mat-24" mat-icon-button (click)="removeTicket(in)">
+                  <mat-icon>clear</mat-icon>
                 </button>
-              </md-card-actions>
+              </mat-card-actions>
             </div>
             <div fxLayout="column" fxLayout.gt-sm="row">
-              <md-input-container>
-                <input mdInput [(ngModel)]="ticket.email" placeholder="Contact email for this ticketholder"
+              <mat-input-container>
+                <input matInput [(ngModel)]="ticket.email" placeholder="Contact email for this ticketholder"
                   name="ticket-email-{{in}}">
-              </md-input-container>
+              </mat-input-container>
               &nbsp;
-              <md-input-container>
-                <input mdInput [(ngModel)]="ticket.phone" placeholder="Contact phone number"
+              <mat-input-container>
+                <input matInput [(ngModel)]="ticket.phone" placeholder="Contact phone number"
                   name="ticket-phone-{{in}}">
-              </md-input-container>
+              </mat-input-container>
             </div>
             <div layout-padding>
               <label>Age Category</label> {{ticket.agegroup}}
-              <md-radio-group [(ngModel)]="ticket.agegroup" (ngModelChange)="computeOrderDetails()"
+              <mat-radio-group [(ngModel)]="ticket.agegroup" (ngModelChange)="computeOrderDetails()"
                 name="ticket-agecat-{{in}}" required fxLayout="column">
-                <md-radio-button value="ADULT_TICKET"><b>Adult</b>-Upstairs food, bid card, $16</md-radio-button>
-                <md-radio-button value="HIGHSCHOOL_TICKET"><b>High School Class</b>-Upstairs food, no bid
-                  card, $12</md-radio-button>
-                <md-radio-button value="JUNIORHIGH_TICKET"><b>Junior High Class</b>—Downstairs food, no
-                  bid card, $5</md-radio-button>
-                <md-radio-button value="CHILD_TICKET"><b>Elementary Classes</b>—Age five through 5th
+                <mat-radio-button value="ADULT_TICKET">
+                  <b>Adult</b>-Upstairs food, bid card, $16</mat-radio-button>
+                <mat-radio-button value="HIGHSCHOOL_TICKET">
+                  <b>High School Class</b>-Upstairs food, no bid
+                  card, $12</mat-radio-button>
+                <mat-radio-button value="JUNIORHIGH_TICKET">
+                  <b>Junior High Class</b>—Downstairs food, no bid
+                  card, $5</mat-radio-button>
+                <mat-radio-button value="CHILD_TICKET">
+                  <b>Elementary Classes</b>—Age five through 5th
                   grade, downstairs food, special activities,
                   $5
-                </md-radio-button>
-                <md-radio-button value="PREK_TICKET"><b>Pre-K Classes</b>—Under Age 5, Snacks, bring
+                </mat-radio-button>
+                <mat-radio-button value="PREK_TICKET">
+                  <b>Pre-K Classes</b>—Under Age 5, Snacks, bring
                   your own food, Childcare will be provided,
                   $0
-                </md-radio-button>
-              </md-radio-group>
+                </mat-radio-button>
+              </mat-radio-group>
             </div>
             <div layout-padding>
               <label>Dietary Restrictions</label>
-              <md-radio-group [(ngModel)]="ticket.foodRes" fxLayout="column"
+              <mat-radio-group [(ngModel)]="ticket.foodRes" fxLayout="column"
                 name="ticket-gluten-{{in}}">
-                <md-radio-button value="NONE_FOOD">Regular</md-radio-button>
-                <md-radio-button value="VEGETARIAN_FOOD">Vegetarian</md-radio-button>
-                <md-radio-button value="VEGAN">Vegan</md-radio-button>
-              </md-radio-group>
+                <mat-radio-button value="NONE_FOOD">Regular</mat-radio-button>
+                <mat-radio-button value="VEGETARIAN_FOOD">Vegetarian</mat-radio-button>
+                <mat-radio-button value="VEGAN">Vegan</mat-radio-button>
+              </mat-radio-group>
             </div>
-          </md-card>
+          </mat-card>
         </div>
         <div>
-          <button md-raised-button color="primary" (click)="addTicket()">Add Ticket</button>
+          <button mat-raised-button color="primary" (click)="addTicket()">Add Ticket</button>
         </div>
       </div>
       <!-- column -->
@@ -92,7 +97,7 @@
     <!-- flex -->
 
     <div>
-      <md-card layout-padding>
+      <mat-card layout-padding>
         <div>Order Summary</div>
 
         <div>
@@ -135,17 +140,17 @@
         <div>
           Would you like to donate to the bar fund?
           <br>
-          <md-input-container>
-            <input mdInput type="string" [(ngModel)]="barDonation" name="bardonation"
+          <mat-input-container>
+            <input matInput type="string" [(ngModel)]="barDonation" name="bardonation"
               type="number" (ngModelChange)="computeOrderDetails()"
               placeholder="Bar donation (optional)" min="0">
             <span mdPrefix>$</span>
             <span mdSuffix>.00</span>
-          </md-input-container>
-          <button md-icon-button aria-label="info" (ngClick)="showBarHelp($event)">
-            <md-icon>
+          </mat-input-container>
+          <button mat-icon-button aria-label="info" (ngClick)="showBarHelp($event)">
+            <mat-icon>
               info
-            </md-icon>
+            </mat-icon>
           </button>
         </div>
         <div>
@@ -153,22 +158,22 @@
         </div>
 
         <div>
-          <button md-raised-button (click)="onClickBuy()" color="primary">
+          <button mat-raised-button (click)="onClickBuy()" color="primary">
             Purchase Tickets
           </button>
-          <button md-raised-button (click)="addTicket()" color="primary">Add additional ticket to order</button>
+          <button mat-raised-button (click)="addTicket()" color="primary">Add additional ticket to order</button>
         </div>
         <!--      
       -->
 
-      </md-card>
+      </mat-card>
       <!--
-      <md-toolbar class="md-warn" layout-padding flex style="display: inline-block">
-        <div class="md-toolbar-tools" flex style="display: inline-block">
+      <mat-toolbar class="mat-warn" layout-padding flex style="display: inline-block">
+        <div class="mat-toolbar-tools" flex style="display: inline-block">
           A few days after the auction completes, we will charge the card
           you enter here for the items bought.
         </div>
-      </md-toolbar>
+      </mat-toolbar>
     -->
     </div>
   </div>
