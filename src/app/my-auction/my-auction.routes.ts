@@ -7,4 +7,8 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 
 export const MyAuctionRoutes: Routes = [
     { path: 'home', component: HomeComponent },
+    { path: 'my_tickets', component: MyTicketsComponent },
+    { path: 'my_donated_items', component: MyDonatedItemsComponent },
+    { path: 'my_invoice', component: MyInvoiceComponent },
+    { path: 'my_profile', component: MyProfileComponent },
 ];

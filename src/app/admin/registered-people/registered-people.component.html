@@ -1,3 +1,44 @@
-<p>
-  registered-people works!
-</p>
+<div *ngFor="let ticket of tickets">
+  <md-card>
+    <div fxLayout="row">
+      <md-input-container>
+        <input mdInput placeholder="First Name" [(ngModel)]="ticket.firstname"
+          (blur)="saveTicket(ticket)">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput placeholder="Last Name" [(ngModel)]="ticket.lastname"
+          (blur)="saveTicket(ticket)">
+      </md-input-container>
+    </div>
+    <div fxLayout="row">
+      <md-input-container>
+        <input mdInput placeholder="Bid Number" [ngModel]="ticket.bidnumber"
+          disabled>
+      </md-input-container>
+      {{ticket.date | date:'medium'}}
+    </div>
+    <md-checkbox [(ngModel)]="ticket.gluten">
+      Gluten Free
+    </md-checkbox>
+    <div fxLayout="row">
+      <div>
+        <md-input-container>
+          <md-select mdInput placeholder="Food Restrictions">
+            <md-option *ngFor="let res of allFoodRestrictions" [value]="res">{{res | translate}}</md-option>
+          </md-select>
+        </md-input-container>
+      </div>
+      <div>
+        <md-form-field>
+          <md-select mdInput placeholder="Age Category">
+            <md-option *ngFor="let cat of ageCategories" [value]="cat">{{cat | translate}}</md-option>
+          </md-select>
+        </md-form-field>
+      </div>
+    </div>
+
+    <div>
+      {{ticket | json}}
+    </div>
+  </md-card>
+</div>

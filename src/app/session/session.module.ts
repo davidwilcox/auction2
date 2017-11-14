@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MdSnackBarContainer, MdInputModule, MdButtonModule, MdSnackBarModule, MdSnackBar, OVERLAY_PROVIDERS, ScrollStrategyOptions } from '@angular/material';
@@ -25,6 +26,7 @@ import { LogoutComponent } from './logout/logout.component';
     MdButtonModule,
     RouterModule.forChild(SessionRoutes),
     FormsModule,
+    HttpModule,
   ],
   declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent, LogoutComponent],
   providers: [

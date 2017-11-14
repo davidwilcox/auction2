@@ -8,10 +8,13 @@ import { MyDonatedItemsComponent } from './my-donated-items/my-donated-items.com
 import { MyInvoiceComponent } from './my-invoice/my-invoice.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 
+import { MdButtonModule } from '@angular/material';
+
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(MyAuctionRoutes),
+    MdButtonModule,
   ],
   declarations: [HomeComponent, MyTicketsComponent, MyDonatedItemsComponent, MyInvoiceComponent, MyProfileComponent]
 })

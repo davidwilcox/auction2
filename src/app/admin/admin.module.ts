@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
+
+
 import { HomeComponent } from './home/home.component';
 import { AdminRoutes } from './admin.routes';
 import { RegisteredPeopleComponent } from './registered-people/registered-people.component';
@@ -14,14 +19,44 @@ import { FixedPriceSheetsComponent } from './fixed-price-sheets/fixed-price-shee
 import { ChargeForItemsComponent } from './charge-for-items/charge-for-items.component';
 import { BidCardsComponent } from './bid-cards/bid-cards.component';
 
-import { MdButtonModule } from '@angular/material';
+import { AllTicketsService } from './all-tickets.service';
+import { AllItemsService } from './all-items.service';
+
+import { MdSelectModule, MdButtonModule, MdCardModule, MdInputModule, MdCheckboxModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { TranslateService, TRANSLATION_PROVIDERS, TranslatePipe } from '../translations';
+
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminRoutes),
     MdButtonModule,
+    HttpModule,
+    FormsModule,
+    MdInputModule,
+    MdCardModule,
+    FlexLayoutModule,
+    MdCheckboxModule,
+    MdSelectModule,
   ],
-  declarations: [HomeComponent, RegisteredPeopleComponent, ModifyDonatedItemsComponent, InsertBidsComponent, AddAdminComponent, SilentBidSheetsComponent, LiveCatalogComponent, LivePrintComponent, FixedPriceSheetsComponent, ChargeForItemsComponent, BidCardsComponent]
+  providers: [
+    AllTicketsService,
+    AllItemsService,
+    TRANSLATION_PROVIDERS,
+    TranslateService
+  ],
+  declarations: [HomeComponent,
+    RegisteredPeopleComponent,
+    ModifyDonatedItemsComponent,
+    InsertBidsComponent,
+    AddAdminComponent,
+    SilentBidSheetsComponent,
+    LiveCatalogComponent,
+    LivePrintComponent,
+    FixedPriceSheetsComponent,
+    ChargeForItemsComponent,
+    BidCardsComponent,
+    TranslatePipe]
 })
 export class AdminModule { }
