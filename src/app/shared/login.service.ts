@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { SessionStorage, SessionStorageService } from 'ng2-webstorage';
+import { SessionStorageService } from 'ng2-webstorage';
 
 import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs';
+import 'rxjs/add/operator/map';
+
 
 export class UserInfo {
   constructor(info: any, token: string) {
