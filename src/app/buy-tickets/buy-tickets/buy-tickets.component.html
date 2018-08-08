@@ -25,15 +25,15 @@
           <mat-card layout-padding>
             <div fxLayout="row">
               <div fxLayout="column" fxLayout.gt-sm="row">
-                <mat-input-container>
+                <mat-form-field>
                   <input matInput [(ngModel)]="ticket.firstname" placeholder="First Name"
                     name="ticket-first-name-{{in}}">
-                </mat-input-container>
+                </mat-form-field>
                 &nbsp;
-                <mat-input-container>
+                <mat-form-field>
                   <input matInput [(ngModel)]="ticket.lastname" placeholder="Last Name"
                     name="ticket-last-name-{{in}}">
-                </mat-input-container>
+                </mat-form-field>
               </div>
               <div fxFlex></div>
               <mat-card-actions>
@@ -43,15 +43,15 @@
               </mat-card-actions>
             </div>
             <div fxLayout="column" fxLayout.gt-sm="row">
-              <mat-input-container>
+              <mat-form-field style="width:35ch">
                 <input matInput [(ngModel)]="ticket.email" placeholder="Contact email for this ticketholder"
-                  name="ticket-email-{{in}}">
-              </mat-input-container>
+                  name="ticket-email-{{in}}" style="width: 100%;">
+              </mat-form-field>
               &nbsp;
-              <mat-input-container>
-                <input matInput [(ngModel)]="ticket.phone" placeholder="Contact phone number"
-                  name="ticket-phone-{{in}}">
-              </mat-input-container>
+              <mat-form-field>
+                <input placeholder="Phone Number" matInput type="tel" [ngModel]="ticket.phone | phoneNumber"
+                (ngModelChange)="phoneNumberChange(ticket,$event)" [name]="'ticket-phone-' + in">
+              </mat-form-field>
             </div>
             <div layout-padding>
               <label>Age Category</label> {{ticket.agegroup}}
@@ -140,13 +140,13 @@
         <div>
           Would you like to donate to the bar fund?
           <br>
-          <mat-input-container>
+          <mat-form-field>
             <input matInput type="string" [(ngModel)]="barDonation" name="bardonation"
               type="number" (ngModelChange)="computeOrderDetails()"
               placeholder="Bar donation (optional)" min="0">
             <span mdPrefix>$</span>
             <span mdSuffix>.00</span>
-          </mat-input-container>
+          </mat-form-field>
           <button mat-icon-button aria-label="info" (ngClick)="showBarHelp($event)">
             <mat-icon>
               info

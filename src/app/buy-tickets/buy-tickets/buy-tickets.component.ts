@@ -33,6 +33,10 @@ export class BuyTicketsComponent implements OnInit {
     this.tickets.splice(index, 1);
   }
 
+  phoneNumberChange(ticket: Ticket, str: string): void {
+    ticket.phone = str;
+  }
+
   addTicket(): void {
     let ticket = this.createTicket();
     if (this._loginInformation) {

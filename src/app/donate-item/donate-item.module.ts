@@ -6,8 +6,8 @@ import { DonateItemComponent, DonationSuggestionsDialog } from './donate-item/do
 import { DonateItemRoutes } from './donate-item.routes';
 import { DonateItemConfirmationComponent } from './donate-item-confirmation/donate-item-confirmation.component';
 import { FormsModule } from '@angular/forms';
-import { PhoneNumberPipe } from '../pipes/phone-number.pipe';
-import { TranslateService, TRANSLATION_PROVIDERS, TranslateModule, TranslatePipe } from '../translations';
+import { TranslateService, TRANSLATION_PROVIDERS, TranslateModule } from '../translations';
+import { PhoneNumberModule } from '../pipes/phone-number/phone-number.module';
 
 @NgModule({
   imports: [
@@ -20,11 +20,12 @@ import { TranslateService, TRANSLATION_PROVIDERS, TranslateModule, TranslatePipe
     MatButtonModule,
     MatRadioModule,
     TranslateModule,
+    PhoneNumberModule
   ],
-  declarations: [DonateItemComponent,
+  declarations: [
+    DonateItemComponent,
     DonateItemConfirmationComponent,
     DonationSuggestionsDialog,
-    PhoneNumberPipe,
   ],
   bootstrap: [DonationSuggestionsDialog],
   providers: [TRANSLATION_PROVIDERS, TranslateService]

@@ -30,34 +30,34 @@
   Enter the name (or names!) of the person or group donating this
   item (you can change it from the autofilled name):
   <div>
-    <mat-input-container>
+    <mat-form-field>
       <input placeholder="Donor First Name" matInput type="text" [(ngModel)]="donor.firstname"
         name="donorfirstname" required>
-    </mat-input-container>
+    </mat-form-field>
   </div>
   <div>
-    <mat-input-container>
+    <mat-form-field>
       <input placeholder="Donor Last Name" matInput type="text" [(ngModel)]="donor.lastname"
         name="donorlastname" required>
-    </mat-input-container>
+    </mat-form-field>
   </div>
 
   <div>
     What phone number should people call about this item? (Again,
     you can change from the autofill.)
   </div>
-  <mat-input-container>
+  <mat-form-field>
     <input placeholder="Phone Number" matInput type="tel" [ngModel]="donor.phonenumber | phoneNumber"
       (ngModelChange)="phoneNumberChange($event)" name="donorphonenumber"
       required>
-  </mat-input-container>
+  </mat-form-field>
   <div>
     What email should people use to contact the donor(s)?
   </div>
-  <mat-input-container>
+  <mat-form-field>
     <input placeholder="Email Address" matInput type="text" name="email"
       ng-model="donor.email" required>
-  </mat-input-container>
+  </mat-form-field>
   <div>
     Give us a photo of you, or the donating group! (Again, you can
     change it from the image from your original registration.)
@@ -89,42 +89,42 @@
     Please keep this succinct.
     <br> Maximum {{itemMaxLength}} characters.
   </div>
-  <mat-input-container class="standard-form-width">
+  <mat-form-field class="standard-form-width">
     <input placeholder="Item Name" matInput type="text" [(ngModel)]="item.name"
       name="itemname" [maxlength]="itemMaxLength" size="50" required>
     <mat-hint align="end">{{item.name.length}} / {{itemMaxLength}}</mat-hint>
-  </mat-input-container>
+  </mat-form-field>
   <div>
     Here's a little more information about it.
     <br> What is great about this item? What would make someone want
     to buy it? Write like you're trying to sell it!
     <br> Maximum {{descriptionMaxLength}} characters.
   </div>
-  <mat-input-container class="standard-form-width">
+  <mat-form-field class="standard-form-width">
     <textarea placeholder="Description" matInput [(ngModel)]="item.description"
       name="itemdescription" [maxlength]="descriptionMaxLength"
       mdTextareaAutosize required></textarea>
     <mat-hint align="end">{{item.description.length}} / {{descriptionMaxLength}}</mat-hint>
-  </mat-input-container>
+  </mat-form-field>
   <div>
     What is this item worth? Your best guess is fine.
   </div>
   <div layout="row" layout-align="start center">
-    <mat-input-container>
+    <mat-form-field>
       <input placeholder="Fair Market Value" matInput [(ngModel)]="item.value"
         name="itemvalue" min="0" required type="number">
       <span mdPrefix>$</span>
       <span mdSuffix>.00</span>
-    </mat-input-container>
+    </mat-form-field>
   </div>
   I would hate to see my item go for less than this amount.
   <div layout="row" layout-align="start center">
-    <mat-input-container>
+    <mat-form-field>
       <input placeholder="Minimum Value" matInput type="number" [(ngModel)]="item.minvalue"
         name="itemminvalue" min="0" required>
       <span mdPrefix>$</span>
       <span mdSuffix>.00</span>
-    </mat-input-container>
+    </mat-form-field>
   </div>
 
   <div>
@@ -145,19 +145,19 @@
     in this field. However, if you are selling a group of items
     together (a basket of jams, or a set of books, put "1").
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input placeholder="Quantity" matInput type="number" ng-model="item.quantity"
         name="quantity" min="0" required>
-    </mat-input-container>
+    </mat-form-field>
   </div>
 
   <div *ngIf="item.category == 'event'">
     How many spots will your event have?
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input placeholder="Number of Spots" matInput type="number" ng-model="item.quantity"
         min="0" required>
-    </mat-input-container>
+    </mat-form-field>
   </div>
 
   <div *ngIf="item.category == 'event'">
@@ -173,19 +173,19 @@
       If you absolutely can’t pick an exact date, enter the timeframe
       notes you know at this point, like “A Saturday in July”
       <br>
-      <mat-input-container>
+      <mat-form-field>
         <label>Time Notes</label>
         <input type="text" matInput [(ngModel)]="item.eventtypedtime">
-      </mat-input-container>
+      </mat-form-field>
     </div>
   </div>
 
   <!--
   <div>
     Extra Pricing Notes (Not required)
-    <mat-input-container>
+    <mat-form-field>
       <label></label>
-    </mat-input-container>
+    </mat-form-field>
   </div>
   -->
 
@@ -210,11 +210,11 @@
     this?
   </div>
   <div>
-    <mat-input-container>
+    <mat-form-field>
       <label>Pricing Notes</label>
       <textarea type="text" matInput [(ngModel)]="item.pricingnotes"
         cols="150"></textarea>
-    </mat-input-container>
+    </mat-form-field>
   </div>
 
   <div *ngIf="item.category == 'object'">

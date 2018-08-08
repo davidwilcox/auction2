@@ -11,6 +11,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BuyTicketsRoutes } from './buy-tickets.routes';
 import { BuyTicketsComponent } from './buy-tickets/buy-tickets.component';
 import { BuyTicketsConfirmationComponent } from './buy-tickets-confirmation/buy-tickets-confirmation.component';
+import { PhoneNumberPipe } from '../pipes/phone-number.pipe';
+import { PhoneNumberModule } from '../pipes/phone-number/phone-number.module';
 
 @NgModule({
   imports: [
@@ -25,7 +27,10 @@ import { BuyTicketsConfirmationComponent } from './buy-tickets-confirmation/buy-
     MatIconModule,
     FlexLayoutModule,
     StripeCheckoutModule,
+    PhoneNumberModule,
   ],
-  declarations: [BuyTicketsComponent, BuyTicketsConfirmationComponent]
+  declarations: [
+    BuyTicketsComponent,
+    BuyTicketsConfirmationComponent,]
 })
 export class BuyTicketsModule { }
