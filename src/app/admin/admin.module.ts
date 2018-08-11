@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -32,7 +31,6 @@ import { TranslateService, TRANSLATION_PROVIDERS, TranslatePipe, TranslateModule
     CommonModule,
     RouterModule.forChild(AdminRoutes),
     MatButtonModule,
-    HttpModule,
     FormsModule,
     MatInputModule,
     MatCardModule,

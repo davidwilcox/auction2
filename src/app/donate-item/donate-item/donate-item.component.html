@@ -103,7 +103,7 @@
   <mat-form-field class="standard-form-width">
     <textarea placeholder="Description" matInput [(ngModel)]="item.description"
       name="itemdescription" [maxlength]="descriptionMaxLength"
-      mdTextareaAutosize required></textarea>
+      matTextareaAutosize required></textarea>
     <mat-hint align="end">{{item.description.length}} / {{descriptionMaxLength}}</mat-hint>
   </mat-form-field>
   <div>
@@ -113,8 +113,8 @@
     <mat-form-field>
       <input placeholder="Fair Market Value" matInput [(ngModel)]="item.value"
         name="itemvalue" min="0" required type="number">
-      <span mdPrefix>$</span>
-      <span mdSuffix>.00</span>
+      <span matPrefix>$</span>
+      <span matSuffix>.00</span>
     </mat-form-field>
   </div>
   I would hate to see my item go for less than this amount.
@@ -122,8 +122,8 @@
     <mat-form-field>
       <input placeholder="Minimum Value" matInput type="number" [(ngModel)]="item.minvalue"
         name="itemminvalue" min="0" required>
-      <span mdPrefix>$</span>
-      <span mdSuffix>.00</span>
+      <span matPrefix>$</span>
+      <span matSuffix>.00</span>
     </mat-form-field>
   </div>
 

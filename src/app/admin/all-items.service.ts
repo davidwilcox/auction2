@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { ConfigService } from '../shared/config.service';
 import { LoginService, LoginInformation } from '../shared/login.service';
 import { Item } from '../models/item';
 import { Transaction } from '../models/transaction';
 import { Ticket } from '../models/ticket';
+import { HttpClient } from '@angular/common/http';
 
 export class AllItemInfo {
   constructor(items: Array<Item>, transactions: Array<Transaction>, tickets: Array<Ticket>) {
@@ -21,7 +21,7 @@ export class AllItemInfo {
 @Injectable()
 export class AllItemsService {
 
-  constructor(private configService: ConfigService, private http: Http, private loginService: LoginService) {
+  constructor(private configService: ConfigService, private http: HttpClient, private loginService: LoginService) {
   }
 
   register(email: string, password: string): Promise<any> {
@@ -42,7 +42,7 @@ export class AllItemsService {
 
       return Promise.all(promises).then((value) => {
         return new AllItemInfo(value[0], value[1], value[2]);
-      }).catch((reason) => reason.json());
+      });
     });
   }
 }

@@ -100,8 +100,12 @@ export class BuyTicketsComponent implements OnInit {
   }
 
   public onClickBuy(): void {
+    console.log("HERE");
+    let email = this.tickets[0].email;
+    if (this._loginInformation && this._loginInformation.userInfo)
+      email = this._loginInformation.userInfo.email;
     this.stripeCheckoutHandler.open({
-      email: this._loginInformation.userInfo.email,
+      email: email,
       amount: this.calculateTotal() * 100,
       currency: 'USD',
     });
