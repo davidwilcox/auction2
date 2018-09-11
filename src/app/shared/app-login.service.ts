@@ -47,13 +47,13 @@ export class AppLoginService {
             .toPromise();
     }
 
-    forgotPassword(email: string): Promise<string> {
+    forgotPassword(email: string): Promise<any> {
         let url = this.configService.getApiUrl() + "/lost_password";
         let headers = new HttpHeaders({
             'Content-Type': 'application/json'
         });
         console.log(email);
-        return this.http.post<string>(url, { email: email }, { headers: headers })
+        return this.http.post<any>(url, { email: email }, { headers: headers })
             .toPromise();
     }
 

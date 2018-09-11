@@ -1,20 +1,20 @@
 <div *ngFor="let ticket of tickets">
   <mat-card>
     <div fxLayout="row">
-      <mat-input-container>
+      <mat-form-field>
         <input matInput placeholder="First Name" [(ngModel)]="ticket.firstname"
           (blur)="saveTicket(ticket)">
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <input matInput placeholder="Last Name" [(ngModel)]="ticket.lastname"
           (blur)="saveTicket(ticket)">
-      </mat-input-container>
+      </mat-form-field>
     </div>
     <div fxLayout="row">
-      <mat-input-container>
+      <mat-form-field>
         <input matInput placeholder="Bid Number" [ngModel]="ticket.bidnumber"
           disabled>
-      </mat-input-container>
+      </mat-form-field>
       {{ticket.date | date:'medium'}}
     </div>
     <mat-checkbox [(ngModel)]="ticket.gluten">
@@ -22,11 +22,11 @@
     </mat-checkbox>
     <div fxLayout="row">
       <div>
-        <mat-input-container>
+        <mat-form-field>
           <mat-select matInput placeholder="Food Restrictions">
             <mat-option *ngFor="let res of allFoodRestrictions" [value]="res">{{res | translate}}</mat-option>
           </mat-select>
-        </mat-input-container>
+        </mat-form-field>
       </div>
       <div>
         <mat-form-field>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule, MatInputModule, MatCardModule, MatButtonModule, MatIconModule, MatRadioModule } from '@angular/material';
+import { MatToolbarModule, MatInputModule, MatCardModule, MatButtonModule, MatIconModule, MatRadioModule, MatDialogModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { StripeCheckoutModule } from 'ng-stripe-checkout';
 
@@ -13,6 +13,8 @@ import { BuyTicketsComponent } from './buy-tickets/buy-tickets.component';
 import { BuyTicketsConfirmationComponent } from './buy-tickets-confirmation/buy-tickets-confirmation.component';
 import { PhoneNumberPipe } from '../pipes/phone-number.pipe';
 import { PhoneNumberModule } from '../pipes/phone-number/phone-number.module';
+import { BuyTicketsService } from './buy-tickets.service';
+import { BarHelpComponent } from './bar-help/bar-help.component';
 
 @NgModule({
   imports: [
@@ -25,12 +27,19 @@ import { PhoneNumberModule } from '../pipes/phone-number/phone-number.module';
     MatButtonModule,
     MatRadioModule,
     MatIconModule,
+    MatDialogModule,
     FlexLayoutModule,
     StripeCheckoutModule,
     PhoneNumberModule,
   ],
   declarations: [
     BuyTicketsComponent,
-    BuyTicketsConfirmationComponent,]
+    BuyTicketsConfirmationComponent,
+    BarHelpComponent,
+  ],
+  providers: [BuyTicketsService],
+  entryComponents: [
+    BarHelpComponent
+  ]
 })
 export class BuyTicketsModule { }

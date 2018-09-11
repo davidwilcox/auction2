@@ -5,37 +5,24 @@
     <span>{{ error.message }}</span>
   </div>
 
-  <form (ngSubmit)="logIn()" name="loginForm">
+  <form (ngSubmit)="register()" name="registerForm">
     <div>
-      <mat-input-container>
+      <mat-form-field>
         <input matInput [ngModel]="email" placeholder="Email" name="email">
-      </mat-input-container>
+      </mat-form-field>
     </div>
     <div fxLayout="row">
-      <mat-input-container>
+      <mat-form-field>
         <input matInput [ngModel]="firstname" placeholder="First Name"
           name="firstname">
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <input matInput [ngModel]="lastname" placeholder="Last Name" name="lastname">
-      </mat-input-container>
+      </mat-form-field>
     </div>
     <!-- TODO Get picture -->
 
-    <div>
-      <div>
-        <mat-input-container>
-          <input matInput [(ngModel)]="password" placeholder="Password"
-            name="password" type="password">
-        </mat-input-container>
-      </div>
-      <div>
-        <mat-input-container>
-          <input matInput [(ngModel)]="confirmpassword" placeholder="Confirm Password"
-            name="confirmpassword" type="password">
-        </mat-input-container>
-      </div>
-    </div>
+    <app-confirm-password (password)="setPassword($event)" (validReason)="setReason($event)"></app-confirm-password>
   </form>
   <button type="submit" color="primary" mat-raised-button>Register</button>
 </div>

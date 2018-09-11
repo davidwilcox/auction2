@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this._appLoginService.login(this.email, this.password).then((message: any) => {
+      console.log(message);
       if (message.token) {
         this._loginService.login(new UserInfo(message.user, message.token));
         this._snackBar.open("Successfully logged in.", "Dismiss", {
@@ -34,6 +35,10 @@ export class LoginComponent implements OnInit {
           duration: 3000
         });
       }
+    }).catch((error) => {
+      this._snackBar.open(error.error.message, "Dismiss", {
+        duration: 3000
+      });
     });
   }
 

@@ -26,13 +26,13 @@
     <form (ngSubmit)="search()">
       <div fxLayout="row" layout-padding>
         <mat-toolbar>
-          <mat-input-container>
+          <mat-form-field>
             <span mat-prefix>
         <button mat-icon-button type="submit" ><mat-icon>search</mat-icon></button>
     </span>
     <input matInput placeholder="What do you need?" [(ngModel)]="searchTerm"
       size="50" name="searchTerm">
-    </mat-input-container>
+    </mat-form-field>
 </mat-toolbar>
 </div>
 </form>

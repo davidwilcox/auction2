@@ -7,15 +7,16 @@
 
   <form (ngSubmit)="login()" name="loginForm">
     <div>
-      <mat-input-container>
-        <input matInput [(ngModel)]="email" placeholder="Email" name="email" required>
-      </mat-input-container>
+      <mat-form-field>
+        <input matInput [(ngModel)]="email" placeholder="Email" name="email"
+          required>
+      </mat-form-field>
     </div>
     <div>
-      <mat-input-container>
+      <mat-form-field>
         <input matInput [(ngModel)]="password" placeholder="Password"
           name="password" type="password" required>
-      </mat-input-container>
+      </mat-form-field>
     </div>
     <button type="submit" color="primary" mat-raised-button>Log In</button>
   </form>

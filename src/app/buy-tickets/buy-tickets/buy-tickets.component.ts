@@ -5,6 +5,9 @@ import { StripeCheckoutLoader, StripeCheckoutHandler } from 'ng-stripe-checkout'
 import { Ticket } from '../../models/ticket';
 
 import { ConfigService } from '../../shared/config.service';
+import { BuyTicketsService } from '../buy-tickets.service';
+import { MatDialog } from '@angular/material';
+import { BarHelpComponent } from '../bar-help/bar-help.component';
 
 @Component({
   selector: 'app-buy-tickets',
@@ -13,7 +16,12 @@ import { ConfigService } from '../../shared/config.service';
 })
 export class BuyTicketsComponent implements OnInit {
 
-  constructor(private _loginService: LoginService, private _stripeCheckoutLoader: StripeCheckoutLoader, private _configService: ConfigService) { }
+  constructor(
+    private _loginService: LoginService,
+    private _stripeCheckoutLoader: StripeCheckoutLoader,
+    private _configService: ConfigService,
+    private _buyTicketsService: BuyTicketsService,
+    private _dialog: MatDialog) { }
 
   ngOnInit() {
     this._loginService.getLoginInformation().subscribe((loginInformation: LoginInformation) => {
@@ -87,12 +95,19 @@ export class BuyTicketsComponent implements OnInit {
     return new Ticket();
   }
 
+  private getPurchaser(): string {
+    return this.tickets[0].email;
+  }
+
   public ngAfterViewInit() {
     this._stripeCheckoutLoader.createHandler({
       key: this._configService.getStripeToken(),
       token: (token) => {
         // Do something with the token...
         console.log('Payment successful!', token);
+        this._buyTicketsService.buyTickets(this.getPurchaser(), token.id, this.calculateTotal()*100, this.tickets, this.barDonation).then((results) => {
+          console.log(results);
+        });
       }
     }).then((handler: StripeCheckoutHandler) => {
       this.stripeCheckoutHandler = handler;
@@ -114,6 +129,11 @@ export class BuyTicketsComponent implements OnInit {
   public onClickCancel() {
     this.stripeCheckoutHandler.close();
     // If the window has been opened, this is how you can close it:
+  }
+
+  showBarHelp() {
+    console.log("BAR HELP");
+    this._dialog.open(BarHelpComponent, {})
   }
 
 

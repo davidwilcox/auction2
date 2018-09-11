@@ -134,7 +134,7 @@
     required>
     <mat-radio-button value="event">Event (like a dinner party, poker night, a class, anything
       with multiple spots that happens later.)</mat-radio-button>
-    <mat-radio-button value="object">Object or service (a thing that can sit on the table, a gift
+    <mat-radio-button class="wrap" value="object">Object or service (a thing that can sit on the table, a gift
       certificate, haircut, computer consulting, photo shoot.
       It could be later, but it's sold as a single thing.)</mat-radio-button>
   </mat-radio-group>
@@ -196,10 +196,10 @@
     </div>
     <br>
     <div>
-      <mat-radio-group [(ngModel)]="item.policy" name="itempolicy" required>
+      <mat-radio-group [(ngModel)]="item.policy" name="itempolicy"
+        required>
         <div *ngFor="let policy of policies">
-          <mat-radio-button name="policy" [value]="policy" aria-label="Decision">&nbsp;
-            {{policy | translate}}
+          <mat-radio-button name="policy" [value]="policy" aria-label="Decision">&nbsp; {{policy | translate}}
           </mat-radio-button>
         </div>
       </mat-radio-group>

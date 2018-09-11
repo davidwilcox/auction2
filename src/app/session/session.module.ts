@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { SessionRoutes } from './session.routes';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ConfirmPasswordModule } from '../shared/confirm-password/confirm-password.module';
 
 @NgModule({
   imports: [
@@ -23,8 +24,13 @@ import { LogoutComponent } from './logout/logout.component';
     MatButtonModule,
     RouterModule.forChild(SessionRoutes),
     FormsModule,
+    ConfirmPasswordModule,
   ],
-  declarations: [LoginComponent, RegisterComponent, ForgotPasswordComponent, LogoutComponent],
+  declarations: [
+    LoginComponent, 
+    RegisterComponent,
+    ForgotPasswordComponent, 
+    LogoutComponent],
   providers: [
     AppLoginService,
     MatSnackBar,

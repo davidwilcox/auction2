@@ -36,14 +36,14 @@ CompatibilityModule,
 ObserveContentModule
 */
 
-import { MatButtonModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatToolbarModule, MatDialogModule } from '@angular/material';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SessionStorageService } from 'ng2-webstorage';
 
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
-import { SplashPageComponent } from './splash-page/splash-page.component';
+import { SplashPageComponent, DonationSuggestionsDialogSplash } from './splash-page/splash-page.component';
 import { routing } from './app.routing';
 
 import { ConfigService } from './shared/config.service';
@@ -51,6 +51,7 @@ import { LoginService } from './shared/login.service';
 import { CanActivateLoggedIn } from './shared/can-activate-logged-in';
 
 import { TranslatePipe } from './translations';
+import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 
 const WINDOW_PROVIDER: ValueProvider = {
   provide: 'Window',
@@ -62,12 +63,15 @@ const WINDOW_PROVIDER: ValueProvider = {
     AppComponent,
     NavigationBarComponent,
     SplashPageComponent,
+    DonationSuggestionsDialogSplash,
   ],
   imports: [
     BrowserModule,
     FlexLayoutModule,
     MatButtonModule,
     MatToolbarModule,
+    MatDialogModule,
+    HttpClientModule,
     routing,
     NoopAnimationsModule,
   ],
@@ -79,6 +83,7 @@ const WINDOW_PROVIDER: ValueProvider = {
     WINDOW_PROVIDER,
     TranslatePipe,    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DonationSuggestionsDialogSplash],
 })
 export class AppModule { }
