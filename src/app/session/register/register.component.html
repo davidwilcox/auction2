@@ -8,21 +8,25 @@
   <form (ngSubmit)="register()" name="registerForm">
     <div>
       <mat-form-field>
-        <input matInput [ngModel]="email" placeholder="Email" name="email">
+        <input matInput [(ngModel)]="email" placeholder="Email" name="email">
       </mat-form-field>
     </div>
     <div fxLayout="row">
       <mat-form-field>
-        <input matInput [ngModel]="firstname" placeholder="First Name"
+        <input matInput [(ngModel)]="firstname" placeholder="First Name"
           name="firstname">
       </mat-form-field>
       <mat-form-field>
-        <input matInput [ngModel]="lastname" placeholder="Last Name" name="lastname">
+        <input matInput [(ngModel)]="lastname" placeholder="Last Name" name="lastname">
       </mat-form-field>
     </div>
+    <mat-form-field>
+      <input matInput [ngModel]="phoneNumber | phoneNumber" type="tel" placeholder="Phone Number" name="phoneNumber"
+      (ngModelChange)="phoneNumberChange($event)">
+    </mat-form-field>
     <!-- TODO Get picture -->
 
     <app-confirm-password (password)="setPassword($event)" (validReason)="setReason($event)"></app-confirm-password>
+    <button type="submit" color="primary" mat-raised-button>Register</button>
   </form>
-  <button type="submit" color="primary" mat-raised-button>Register</button>
 </div>

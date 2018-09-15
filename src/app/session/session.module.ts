@@ -15,6 +15,7 @@ import { SessionRoutes } from './session.routes';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ConfirmPasswordModule } from '../shared/confirm-password/confirm-password.module';
+import { PhoneNumberModule } from '../pipes/phone-number/phone-number.module';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { ConfirmPasswordModule } from '../shared/confirm-password/confirm-passwo
     RouterModule.forChild(SessionRoutes),
     FormsModule,
     ConfirmPasswordModule,
+    PhoneNumberModule,
   ],
   declarations: [
     LoginComponent, 

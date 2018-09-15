@@ -5,9 +5,15 @@ import { SessionStorageService } from 'ng2-webstorage';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
+export class User {
+  constructor(public email: string, public firstname: string, 
+    public lastname: string, public admin: boolean, public phonenumber: string, 
+    public photoid: string)
+  {}
+}
 
 export class UserInfo {
-  constructor(info: any, token: string) {
+  constructor(info: User, token: string) {
     this.email = info.email;
     this.firstname = info.firstname;
     this.lastname = info.lastname;

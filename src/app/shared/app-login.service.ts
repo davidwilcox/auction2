@@ -7,29 +7,36 @@ import 'rxjs/add/operator/toPromise';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
+export class TokenResponse {
+    constructor(public token: string, message: string) {}
+}
+
 @Injectable()
 export class AppLoginService {
 
     constructor(private configService: ConfigService, private http: HttpClient) {
     }
 
-    register(email: string, password: string, userAttributes: UserAttributes): Promise<string> {
+    register(email: string, password: string, userAttributes: UserAttributes): Promise<TokenResponse> {
         let url = this.configService.getApiUrl() + "/register"
         let headers = new HttpHeaders();
         headers.append('Content-Type', 'application/json');
-        return this.http.put<string>(url, {
+        return this.http.post<TokenResponse>(url, {
             email: email,
             password: password,
+            firstname: userAttributes.firstname,
+            lastname: userAttributes.lastname,
+            phoneNumber: userAttributes.phoneNumber,
             userAttributes: userAttributes
         }, { headers: headers })
             .toPromise();
     }
 
-    login(email: string, password: string): Promise<string> {
+    login(email: string, password: string): Promise<TokenResponse> {
         let url = this.configService.getApiUrl() + "/login"
         let headers = new HttpHeaders();
         headers.append('Content-Type', 'application/json');
-        return this.http.post<string>(url, {
+        return this.http.post<TokenResponse>(url, {
             email: email,
             password: password,
         }, { headers: headers })
